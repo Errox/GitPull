@@ -24,7 +24,7 @@ class VerifyRole
         $role = $user->role;
 
         if($role == 0){
-            return redirect('/topic');
+            return redirect('/');
         }
         else{
             return $next($request);
