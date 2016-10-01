@@ -4,16 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use GrahamCampbell\GitHub\Facades\GitHub;
-
 use App\Http\Requests;
+
+use GrahamCampbell\GitHub\Facades\GitHub;
 
 class GithubController extends Controller
 {
     public function index(){
 
         try{
-            $info = GitHub::repo()->show('Erreox', 'Forum');
+            $info = GitHub::repo()->show('Errox', 'Forum');
 
             dd($info);
         }catch (\Exception $e) {
