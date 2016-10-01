@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 
 use App\Repositorie;
+
 use GrahamCampbell\GitHub\Facades\GitHub;
 
 use Carbon\Carbon;
@@ -23,7 +24,8 @@ class RoleController extends Controller
     }
     
     public function index(){
-
+        $repos = Repositorie::all();
+        dd($repos);
     	return view('/beheer');
     }
 
