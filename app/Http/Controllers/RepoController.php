@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Repositorie;
 use App\Http\Requests;
 
 class RepoController extends Controller
@@ -26,9 +26,14 @@ class RepoController extends Controller
         $repo = $pieces[$index];
 
         try{
-            $info = GitHub::repo()->show($account, $repo);
+            $info = \GitHub::repo()->show($account, $repo);
+            $repositorie = new Repositorie;
+            $repositorie->github_user = $account;
+            $repositorie->repo = $url;
+            $repositorie->save();
         }catch (\Exception $e) {
-            dd('Caught exception: ',  $e->getMessage());
+            //'Caught exception: ',  $e->getMessage();
+            return view('/newrepo');
         }
     }
 }
