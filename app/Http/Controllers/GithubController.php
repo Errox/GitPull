@@ -13,7 +13,7 @@ class GithubController extends Controller
     public function index(){
 
         try{
-            $info = GitHub::repo()->show('Errox', 'Forum');
+            $info = GitHub::repo()->commits()->all('Errox', 'Project', array('sha' => 'master'));;
 
             dd($info);
         }catch (\Exception $e) {

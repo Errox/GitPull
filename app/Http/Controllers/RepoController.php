@@ -17,7 +17,7 @@ class RepoController extends Controller
         $input = $request->all();
         $url = $input['newrepo'];
         $path = parse_url($url);
-       $path = $path['path'];
+        $path = $path['path'];
 
         $pieces = explode('/', $path);
         $index = count($pieces);
@@ -26,7 +26,7 @@ class RepoController extends Controller
         $repo = $pieces[$index];
 
         try{
-            $info = GitHub::repo()->show($account, $repo);
+            $info = \GitHub::repo()->show($account, $repo);
         }catch (\Exception $e) {
             dd('Caught exception: ',  $e->getMessage());
         }

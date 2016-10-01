@@ -2,21 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use Auth;
 
-use Request;
+use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
-use App\Topic;
-
-use App\Tag;
-
-use App\Comment;
-
-use App\Subscription;
-
-use App\User;
+use App\Repo
+use GrahamCampbell\GitHub\Facades\GitHub;
 
 use Carbon\Carbon;
 
