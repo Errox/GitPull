@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
-use App\Repo
 use GrahamCampbell\GitHub\Facades\GitHub;
 
 use Carbon\Carbon;
