@@ -22,4 +22,7 @@ Route::resource('/newrepo', 'RepoController');
 
 Route::group(['middleware' => 'role'], function(){
     Route::resource('/beheer', 'RoleController');
+    Route::resource('/github', 'GithubController');
 });
+
+
