@@ -60,8 +60,8 @@ return [
         ],
 
         'other' => [
-            'username' => 'your-username',
-            'password' => 'your-password',
+            'username' => 'User-name',
+            'password' => 'User-password',
             'method'   => 'password',
             'cache'    => true,
             // 'backoff'  => false,
