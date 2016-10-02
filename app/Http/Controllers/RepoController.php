@@ -10,7 +10,7 @@ class RepoController extends Controller
 {
 
     public function index(){
-        return view('newrepo');
+        return view('repoCreate');
     }
 
     public function store(Request $request){
@@ -28,16 +28,26 @@ class RepoController extends Controller
         try {
             $info = \GitHub::repo()->show($account, $repo);
 
-            $repositorie = new Repositorie;
-            $repositorie->github_user = $account;
-            $repositorie->repo = $url;
-            $repositorie->save();
+            $repositorie = Repositorie::where('github_user', '==', $account)->where('github_repo', '==', $repo);
 
-            return view('/home');
+            if(!count($repositorie)){
+                $repositorie = new Repositorie;
+                $repositorie->github_user = $account;
+                $repositorie->github_repo = $repo;
+                $repositorie->repo = $url;
+                $repositorie->save();
+                \flash('Congratulations, you successfully added the repository '.$repo.' of '.$account, 'success');
+                return view('/repoCreate');
+            }else{
+                \flash('Congratulations, you successfully added the same repository we already had so we deleted it.');
+                return view('/repoCreate');
+            }
+
+
         }catch (\Exception $e) {
             //'Caught exception: ',  $e->getMessage();
-            \flash('Wow Congratulations, was it that hard to copy paste a work url? '.$e->getMessage(), 'danger');
-            return view('/newrepo');
+            \flash('Wow Congratulations, was it that hard to copy paste a work url? Log: '.$e->getMessage(), 'danger');
+            return view('/repoCreate');
         }
     }
 }

@@ -16,6 +16,7 @@ class CreateRepositoriesTable extends Migration
             $table->increments('id');
             $table->text('repo');
             $table->text('github_user');
+            $table->text('github_repo');
             $table->timestamps();
         });
     }
