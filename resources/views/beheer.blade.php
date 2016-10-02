@@ -17,7 +17,7 @@
 
                        <?php $count = 0; ?>
                            @foreach($master as $repo)
-                            <tr><td><a href="/{{$repos[$count]['id']}}">{{$repo['name']}}</a></td>
+                            <tr><td><a href="beheer/{{$repos[$count]['id']}}">{{$repo['name']}}</a></td>
                                <td>
                                    <?php
                                     $index = count($collab[$count]);
