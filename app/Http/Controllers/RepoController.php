@@ -27,15 +27,14 @@ class RepoController extends Controller
 
         try{
             $info = \GitHub::repo()->show($account, $repo);
-<<<<<<< HEAD
-=======
+
             $repositorie = new Repositorie;
             $repositorie->github_user = $account;
             $repositorie->repo = $url;
             $repositorie->save();
->>>>>>> origin/master
         }catch (\Exception $e) {
             //'Caught exception: ',  $e->getMessage();
+            \flash('Wow Congratulations, was it that hard to copy paste a work url? '.$e->getMessage(), 'danger');
             return view('/newrepo');
         }
     }

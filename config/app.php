@@ -148,6 +148,7 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         GrahamCampbell\GitHub\GitHubServiceProvider::class,
+        Laracasts\Flash\FlashServiceProvider::class,
 
 
         /*
