@@ -40,7 +40,6 @@ class RoleController extends Controller
            //$contributors = Github::collaborators()->all($account, $repo);
            $repositories[] = $info;
         }
-
     	return view('/beheer')->with(compact('repositories', 'master', 'repos', 'collab'));
     }
     public function show($id){
