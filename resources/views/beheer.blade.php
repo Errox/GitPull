@@ -11,23 +11,15 @@
                    <table class="table table-hover table-striped">
                        <thead>
                        <th>Repositories</th>
-                       <th>Werkers</th>
+                       <th>Eigenaar</th>
                        </thead>
                        <tbody>
 
-                       <?php $count = 0; ?>
                            @foreach($master as $repo)
-                            <tr><td><a href="beheer/{{$repos[$count]['id']}}">{{$repo['name']}}</a></td>
-                               <td>
-                                   <?php
-                                    $index = count($collab[$count]);
-                                       $index -= 1;
-                                   ?>
-                                   @for($i = 0; $i <= $index; $i++)
-                                    {{$collab[$count][$i]['login']}}&nbsp;
-                                    @endfor
-                               </td></tr>
-                               <?php $count += 1; ?>
+                            <tr><td>{{$repo['name']}}</td>
+                                <td> {{$repo['owner']['login']}}</td>
+                                <td><a style="float:right;" class="btn btn-primary" href="/{{$repos[$count]['id']}}">Lees meer &raquo;</a></td>
+                            </tr>
                            @endforeach
                        </tbody>
                    </table>
