@@ -35,7 +35,7 @@ class RepoController extends Controller
                 $repositorie->github_repo = $repo;
                 $repositorie->repo = $url;
                 $repositorie->save();
-                \flash('Congratulations, you successfully added the repository '.$repo.' of '.$account, 'success');
+                \flash('Congratulations, you successfully added the repository '.$repo.' of '.$account);
                 return view('/repoCreate');
             }else{
                 \flash('Congratulations, you successfully added the same repository we already had so we deleted it.');
