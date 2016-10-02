@@ -28,9 +28,8 @@ class RepoController extends Controller
         try {
             $info = \GitHub::repo()->show($account, $repo);
 
-            $repositorie = Repositorie::where('github_user', '==', $account)->where('github_repo', '==', $repo);
-
-            if(!count($repositorie)){
+            $repositorie = Repositorie::where('github_user', '=', $account)->where('github_repo', '=', $repo)->get();
+            if(isset($repositorie[0]['repo']) != $url){
                 $repositorie = new Repositorie;
                 $repositorie->github_user = $account;
                 $repositorie->github_repo = $repo;
@@ -46,7 +45,7 @@ class RepoController extends Controller
 
         }catch (\Exception $e) {
             //'Caught exception: ',  $e->getMessage();
-            \flash('Wow Congratulations, was it that hard to copy paste a work url? Log: '.$e->getMessage(), 'danger');
+            \flash('Wow Congratulations, was it that hard to copy paste a working url? Error: '.$e->getMessage(), 'danger');
             return view('/repoCreate');
         }
     }
