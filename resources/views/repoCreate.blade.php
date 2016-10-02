@@ -10,7 +10,7 @@
                 <div class="panel-body">
                    <form action="{{url('/newrepo')}}" method="post">
                        {!! csrf_field() !!}
-                        <label>Voeg nieuwe repo toevoegen</label><br>
+                        <label>Nieuwe repositorie toevoegen</label><br>
                        <input type="url" name="newrepo"><br>
                         <input type="submit" value="Verzenden">
 
