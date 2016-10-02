@@ -19,11 +19,13 @@
                            @foreach($master as $repo)
                             <tr><td><a href="/{{$repos[$count]['id']}}">{{$repo['name']}}</a></td>
                                <td>
-                                   <?php $count2 = 0; ?>
-                                   @foreach($collab as $partners)
-                                    {{$partners[$count2]['login']}}&nbsp;
-                                       <?php $count2 += 1; ?>
-                                   @endforeach
+                                   <?php
+                                    $index = count($collab[$count]);
+                                       $index -= 1;
+                                   ?>
+                                   @for($i = 0; $i <= $index; $i++)
+                                    {{$collab[$count][$i]['login']}}&nbsp;
+                                    @endfor
                                </td></tr>
                                <?php $count += 1; ?>
                            @endforeach
