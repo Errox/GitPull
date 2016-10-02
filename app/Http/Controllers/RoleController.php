@@ -44,9 +44,9 @@ class RoleController extends Controller
     	return view('/beheer')->with(compact('repositories', 'master', 'repos', 'collab'));
     }
     public function show($id){
-        $repo = Repositorie::find($id);
 
         try{
+            $repo = Repositorie::find($id);
             $commits = GitHub::repo()->commits()->all($repo->github_user, $repo->github_repo, array('sha' => 'master'));
             $repo = GitHub::repo()->show($repo->github_user, $repo->github_repo);
 
