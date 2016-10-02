@@ -25,13 +25,15 @@ class RepoController extends Controller
         $account = $pieces[$index-1];
         $repo = $pieces[$index];
 
-        try{
+        try {
             $info = \GitHub::repo()->show($account, $repo);
 
             $repositorie = new Repositorie;
             $repositorie->github_user = $account;
             $repositorie->repo = $url;
             $repositorie->save();
+
+            return view('/home');
         }catch (\Exception $e) {
             //'Caught exception: ',  $e->getMessage();
             \flash('Wow Congratulations, was it that hard to copy paste a work url? '.$e->getMessage(), 'danger');
