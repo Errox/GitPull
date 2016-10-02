@@ -39,7 +39,7 @@ return [
     'connections' => [
 
         'main' => [
-            'token'   => 'c9a8c8d73ea5a6e43cee6dc4d50c96d25fd64af4',
+            'token'   => '4665f975ab136975462d61b27f5a8b8865dccbab',
             'method'  => 'token',
             'cache'   => true,
             // 'backoff' => false,

@@ -36,11 +36,10 @@ class RoleController extends Controller
            $repo = $pieces[$index];
            $info = GitHub::repo()->commits()->all($account, $repo, array('sha' => 'master'));
            $master[] = GitHub::repo()->show($account, $repo);
-           $collab[] = GitHub::repo()->collaborators()->all($account, $repo, array('sha' => 'master'));
            //$contributors = Github::collaborators()->all($account, $repo);
            $repositories[] = $info;
         }
-    	return view('/beheer')->with(compact('repositories', 'master', 'repos', 'collab'));
+    	return view('/beheer')->with(compact('repositories', 'master', 'repos'));
     }
     public function show($id){
 

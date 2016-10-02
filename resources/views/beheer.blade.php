@@ -14,12 +14,13 @@
                        <th>Eigenaar</th>
                        </thead>
                        <tbody>
-
+                        <?php $count = 0; ?>
                            @foreach($master as $repo)
                             <tr><td>{{$repo['name']}}</td>
                                 <td> {{$repo['owner']['login']}}</td>
-                                <td><a style="float:right;" class="btn btn-primary" href="/{{$repos[$count]['id']}}">Lees meer &raquo;</a></td>
+                                <td><a style="float:right;" class="btn btn-primary" href="/beheer/{{$repos[$count]['id']}}">Lees meer &raquo;</a></td>
                             </tr>
+                              <?php $count += 1; ?>
                            @endforeach
                        </tbody>
                    </table>
