@@ -25,15 +25,13 @@ class RepoController extends Controller
         $account = $pieces[$index-1];
         $repo = $pieces[$index];
 
-        try{
+        try {
             $info = \GitHub::repo()->show($account, $repo);
-<<<<<<< HEAD
-=======
             $repositorie = new Repositorie;
             $repositorie->github_user = $account;
             $repositorie->repo = $url;
             $repositorie->save();
->>>>>>> origin/master
+            return view('/home');
         }catch (\Exception $e) {
             //'Caught exception: ',  $e->getMessage();
             return view('/newrepo');
